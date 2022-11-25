@@ -16,10 +16,10 @@ def simplificaciones(P, Q):
     return [int(P), int(Q)]
 
 #Casos de prueba
-primera_fraccion = simplificaciones(105, 210)
-segunda_fraccion = simplificaciones(15, 45)
-tercera_fraccion = simplificaciones(22, 44)
-cuarta_fraccion  = simplificaciones(9, 24)
+primera_fraccion = simplificaciones(10, 20)
+segunda_fraccion = simplificaciones(5, 35)
+tercera_fraccion = simplificaciones(12, 22)
+cuarta_fraccion  = simplificaciones(6, 49)
 
 # Salida por pantalla 
 print(f"{primera_fraccion[0]}/{primera_fraccion[1]}")

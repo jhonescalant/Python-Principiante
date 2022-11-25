@@ -8,28 +8,59 @@
 # d) Determinar cuántas palabras contuvieron la expresión "de", pero en la primera mitad de la palabra
 
 
-notas_examen=[7,4,10,9,3,1,5,6,10]
+# Inicio del programa
+def texto():
 
-notas_trabajo=[8,6,10,9,7,10,7,3,10]
+    texto = ""
+    textoSinPunto = ""
+    palabra = ""
+    palabras_ingresadas = 0
+    palabras_con_digitos = 0
+    palabras_cortas = 0
+    palabras_medianas = 0
+    palabras_largas = 0
+    palabra_mas_larga = 0
+    palabras_con_de = 0
 
+    print("  **  La carga de texto finalizara cuando se ingrese un punto  ** \n")
 
-def aprobados(nota_minima, lista_notas):
-    cant_aprobados=0
-    for nota in lista_notas:
-        if(nota>= nota_minima):
-            cant_aprobados+=1
-    return cant_aprobados
+    while not(texto.endswith(".")):
 
-def promedio(lista_notas):
-    total=0
-    for i in range (len(lista_notas)):
-        total+=lista_notas[i]
-    return total / len(lista_notas)
+        texto = input("Ingresar texto: ").lower()
 
-print("La cantidad de aprobados en el examen es de "+ str(aprobados(4,notas_examen)))
+        if (texto.endswith(".")): 
+            textoSinPunto = texto[0: len(texto)-1]
+        else: 
+            textoSinPunto = texto
 
-print("El promedio de las notas del examen"+str(promedio(notas_examen)))
+        for palabra in textoSinPunto.split():
 
+            
+            if not palabra.isalpha(): 
+                palabras_con_digitos += 1
 
- 
+            
+            if len(palabra) <= 3: 
+                palabras_cortas += 1
+            if len(palabra) >= 4 and len(palabra) <= 6: 
+                palabras_medianas += 1
+            if len(palabra) > 6: 
+                palabras_largas += 1
 
+            
+            if (palabras_ingresadas == 1) or (len(palabra) > palabra_mas_larga):
+                palabra_mas_larga = len(palabra)
+
+            
+            if (palabra.find("de") < int(len(palabra) / 2)) and (palabra.find("de") != -1):
+                palabras_con_de += 1
+
+    print("\nResultados")
+    print(f"Cantidad de palabras que contenian al menos un digito: {palabras_con_digitos}")
+    print(f"Cantidad de palabras que tienen 3 letras o menos: {palabras_cortas}")
+    print(f"Cantidad de palabras que tienen entre 4 y 6 letras: {palabras_medianas}")
+    print(f"Cantidad de palabras que tienen mas de 6 letras: {palabras_largas}")
+    print(f"Longitud de la palabra mas larga del texto: {palabra_mas_larga} letras")
+    print(f"Cantidad de palabras que contienen la expresion de en la primera mitad de la palabra: {palabras_con_de}")
+
+texto()

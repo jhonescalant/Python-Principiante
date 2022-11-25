@@ -10,22 +10,40 @@
 # El porcentaje de estas palabras sobre el total es 43 %
 
 
+# Inicio del programa
+def solamente_a(texto):
+
+    vocales = ("e", "i", "o", "u")
+    palabras_ingresadas = 0
+    palabra_mas_larga = 0
+    palabras_con_a = 0     
+    porcentaje_con_a = 0 
+    cont = 0
 
 
+    # El split() método divide una cadena en una lista.
+    for palabra in texto.split():
+        palabras_ingresadas += 1
 
+        # determino la palabra mas larga
+        if (palabras_ingresadas == 1 or len(palabra) > palabra_mas_larga):
+            palabra_mas_larga = len(palabra)
+        
+        # Palabras que tienen la A como unica vocal 
+        for letra in palabra:
+            if (letra in vocales): 
+                cont += 1
+        if (cont == 0): 
+            palabras_con_a += 1      
+        cont = 0 
 
+    #Calculo del porcentaje        
+    porcentaje_con_a = int(palabras_con_a * 100 / palabras_ingresadas) 
 
+    # Salida por panmtalla 
+    print(f"La longitud de la palabra mas larga es de {palabra_mas_larga} letras")
+    print(f"Palabras cuya unica vocal es la A: {palabras_con_a}")
+    print(f"El porcentaje de estas palabras sobre el total es {porcentaje_con_a} %")
 
-
-
-
-
-
-
-
-
-
-
-
-
+solamente_a("el agua clara salta por las piedras")
 

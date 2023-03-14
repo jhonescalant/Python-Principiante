@@ -22,6 +22,9 @@ resto = primer_num % segun_num
 print("El resultado es de:",resultado)
 print("El resto es de:",resto)
 
+# comentarios
+
+
 
 #*****************************************************************      
 #            P R U E B A      D E     E S C R I T O R I O
